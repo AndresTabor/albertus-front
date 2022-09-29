@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+    /* font-family: 'Hatton'; */
+}
+
+@font-face {
+  font-family: 'MyWebFont';
+  src:  url('./assets/fonts/Tt_commons_pro.otf') format('woff2');
+  font-family: 'Hatton';
+  src:  url('./assets/fonts/Hatton.otf') format('woff2'),
+}
+
+*:root{
+  --color-primary: rgb(56 228 248);
+  --color-secondary: rgb(12 40 73);
+}
+
+

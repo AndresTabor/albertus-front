@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<div class="container py-5">
+  <div class="date-container">
+    <label for="blockDate" class="mb-3">Fecha: </label>
+    <input type="date" id="blockDate" class="form-control" (change)="createReport()" [(ngModel)]="selectedDate"  name="blockDate" >
+  </div>
+  
+  <table class="table table-striped mt-5">
+    <thead>
+      <tr>
+        <th>Tipo de Transacción</th>
+        <th>Hash</th>
+        <th>Fecha de Creación</th>
+        <th>Recargo</th>
+      </tr>
+    </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let block of blocksToReport">
+          <td>Block Creation</td>
+          <td>{{block.hash}}</td>
+          <td>{{block.timeStamp}}</td>
+          <td>{{block.hasOverCharge}}</td>
+        </tr>       
+      </tbody>
+  </table>
+  
+  <h2 class="mt-5">Total Blocks Created: <span>{{blocksToReport.length}}</span></h2>
+</div>
+<app-footer></app-footer>
+

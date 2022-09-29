@@ -6,7 +6,7 @@
         (submit)="registerUser()"
     >   
         <h2 class="text-center mb-5 fs-1">Registrate</h2> 
-        <div class="w-full mb-5">
+        <div class="w-full mb-3">
             <span class="d-flex flex-column">                
                 <input
                     formControlName="name"
@@ -19,12 +19,12 @@
                 />                            
             </span>
         </div>
-        <div *ngIf="formRegister.get('name')!.touched " class="mt-2">
+        <div *ngIf="formRegister.get('name')!.touched ">
             <p *ngIf="formRegister.get('name')!.hasError('required')">
               Este campo es requerido
             </p>            
         </div>   
-        <div class="w-full">
+        <div class="w-full mb-3">
             <span class="d-flex flex-column">               
                 <input
                     formControlName="email"
@@ -38,7 +38,7 @@
                             
             </span>
         </div>
-        <div *ngIf="formRegister.get('email')!.touched " class="mt-2">
+        <div *ngIf="formRegister.get('email')!.touched " class="">
             <p *ngIf="formRegister.get('email')!.hasError('email')">
               Ingrese un formato de email válido
             </p> 
@@ -46,7 +46,7 @@
                 Este campo es requerido
             </p>             -->
         </div>
-        <div class="w-full mt-5">
+        <div class="w-full mb-3">
             <span class="d-flex flex-column">                
                 <input
                     formControlName="password"
@@ -59,7 +59,7 @@
                 
             </span>
         </div> 
-        <div *ngIf="formRegister.get('password')!.touched " class="mt-2">
+        <div *ngIf="formRegister.get('password')!.touched " class="">
             <p *ngIf="formRegister.get('password')!.hasError('pattern')">
             Ingrese un contraseña valida. <br/>
             * Mínimo 6 carácteres.<br/>

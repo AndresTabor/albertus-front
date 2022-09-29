@@ -13,10 +13,8 @@ export const environment = {
     messagingSenderId: '345907086056',
   },
   production: false,
- // urlBase:'https://albertus-main.herokuapp.com/',
-  // urlBaseView:'https://albertus-view.herokuapp.com/',
-  // urlWebSocket: 'ws://localhost:8081/retrieve'
-  
+  urlBase:'https://albertus-main.herokuapp.com/',
+  urlBaseView:'https://albertus-view.herokuapp.com/'
 };
 
 /*

@@ -34,7 +34,7 @@ export class ReportComponent implements OnInit {
 
   ngOnInit(): void {    
     this.bringBlocksByApplicationID(this.applicationId);
-
+    
   }
 
 
@@ -91,7 +91,7 @@ export class ReportComponent implements OnInit {
       console.log(this.blocks);
       this.extractDateInfo();  
       this.blocksToReport = this.blocks.filter(block => block.year === this.selectedYear && block.month === this.selectedMonth && block.day === this.selectedDay);
-      console.log(this.blocksToReport);
+      
     }
 
     

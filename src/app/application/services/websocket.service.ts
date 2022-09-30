@@ -7,7 +7,9 @@ import { environment } from 'src/environments/environment';
 })
 export class WebsocketService {
   private socket!: WebSocketSubject<unknown>;
-  constructor() { }
+  constructor() { 
+    this.ping();
+  }
 
   conect(){
     return this.socket = webSocket(`${environment.urlWebSocket}/retrieve/1`)
@@ -16,5 +18,9 @@ export class WebsocketService {
   close(){
     this.socket.unsubscribe();
     //this.socket.next("ping");
+  }
+
+  ping(){
+    setTimeout(() => this.socket.next("ping"), 500);
   }
 }

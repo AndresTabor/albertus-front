@@ -35,7 +35,7 @@ export class ReportComponent implements OnInit {
 
   ngOnInit(): void {    
     this.bringBlocksByApplicationID(this.applicationId);
-    this.socketService$.conect().subscribe(e =>{
+    this.socketService$.conect().subscribe(e =>{      
       console.log(e);
       const event = e as eventMap;
       

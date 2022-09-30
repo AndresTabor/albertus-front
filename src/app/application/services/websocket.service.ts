@@ -21,6 +21,6 @@ export class WebsocketService {
   }
 
   ping(){
-    setTimeout(() => this.socket.next("ping"), 500);
+    setInterval(() => this.socket.next("ping"), 30000);
   }
 }

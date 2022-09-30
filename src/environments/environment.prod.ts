@@ -10,5 +10,6 @@ export const environment = {
   },
   production: true,
   urlBase:'https://albertus-main.herokuapp.com/',
-  urlBaseView:'https://albertus-view.herokuapp.com/'
+  urlBaseView:'https://albertus-view.herokuapp.com/',
+  urlbaseSocket: 'wss://albertus-sockets.herokuapp.com/'
 };

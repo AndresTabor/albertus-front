@@ -8,6 +8,11 @@
     background-color: var(--color-primary);
 }
 
+.btn-navbar:hover{
+    color: white;
+    background-color: var(--color-secondary);
+}
+
 button{    
     font-family: Hatton;
 }

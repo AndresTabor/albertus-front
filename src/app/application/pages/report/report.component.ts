@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SweetalertService } from 'src/app/shared/services/sweetalert.service';
 import { ApplicationService } from '../../services/application.service';
-import { Block } from '../interfaces/models';
+import { WebsocketService } from '../../services/websocket.service';
+import { Block, eventMap } from '../interfaces/models';
 
 
 
@@ -24,8 +25,8 @@ export class ReportComponent implements OnInit {
   constructor(    
     private router: Router,
     private request$: ApplicationService,    
-    private alertService$: SweetalertService
-    
+    private alertService$: SweetalertService,
+    private socketService$: WebsocketService
   ) {
     this.applicationId = this.router.url.split('/').pop()!;
   }
@@ -34,7 +35,14 @@ export class ReportComponent implements OnInit {
 
   ngOnInit(): void {    
     this.bringBlocksByApplicationID(this.applicationId);
-    
+    this.socketService$.conect().subscribe(e =>{
+      console.log(e);
+      const event = e as eventMap;
+      
+      if(event.type  == "blockCreated"){
+        this.createReport();
+      } 
+    });
   }
 
 

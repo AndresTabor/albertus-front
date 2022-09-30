@@ -15,5 +15,6 @@ export class WebsocketService {
 
   close(){
     this.socket.unsubscribe();
+    //this.socket.next("ping");
   }
 }

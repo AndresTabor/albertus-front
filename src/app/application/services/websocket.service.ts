@@ -10,7 +10,7 @@ export class WebsocketService {
   constructor() { }
 
   conect(){
-    return this.socket = webSocket(`${environment.urlWebSocket}/1`)
+    return this.socket = webSocket(`${environment.urlWebSocket}/retrieve/1`)
   }
 
   close(){

@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class WebsocketService {
   private socket!: WebSocketSubject<unknown>;
+  
   constructor() { 
     this.ping();
   }
@@ -16,8 +17,7 @@ export class WebsocketService {
   }
 
   close(){
-    this.socket.unsubscribe();
-    //this.socket.next("ping");
+    this.socket.unsubscribe();    
   }
 
   ping(){

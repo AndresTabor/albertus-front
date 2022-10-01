@@ -17,7 +17,7 @@ export type eventMap = {
     data: Object;    
 }
 
-export type datablock = {
+export type Datablock = {
     applicationId: string,
     data: Object;
     hash: string;

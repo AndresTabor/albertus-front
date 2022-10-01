@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { SweetalertService } from 'src/app/shared/services/sweetalert.service';
 import { ApplicationService } from '../../services/application.service';
 import { WebsocketService } from '../../services/websocket.service';
-import { Block, eventMap } from '../interfaces/models';
+import { Block, Datablock, eventMap } from '../interfaces/models';
 
 
 
@@ -40,7 +40,19 @@ export class ReportComponent implements OnInit {
       const event = e as eventMap;
       
       if(event.type  == "blockCreated"){
-        this.createReport();
+        const blockViewModel = event.data as Datablock
+        //this.createReport();
+        if (this.applicationId == blockViewModel.applicationId) {
+          const ob = {
+            timeStamp: blockViewModel.timeStamp.split('T')[0],
+            hash: blockViewModel.hash,
+            year: blockViewModel.timeStamp.substring(0,4),
+            month: blockViewModel.timeStamp.substring(5,7),
+            day: blockViewModel.timeStamp.substring(8,10),
+            hasOverCharge: blockViewModel.hasOverCharge
+          } as Block;     
+          this.blocksToReport.push(ob);
+        }
       } 
     });
   }
@@ -67,15 +79,6 @@ export class ReportComponent implements OnInit {
   }
 
 
-  // createReport(){
-    
-  //   this.bringBlocksByApplicationID(this.applicationId);
-  //   console.log(this.blocks);
-  //   debugger
-  //   this.extractDateInfo();  
-  //   this.blocksToReport = this.blocks.filter(block => block.year === this.selectedYear && block.month === this.selectedMonth && block.day === this.selectedDay);
-  // }
-
   createReport(){
 
     this.extractDateInfo(); 
@@ -83,34 +86,24 @@ export class ReportComponent implements OnInit {
     const hoy = new Date(tiempoTranscurrido);
     const asd = hoy.toLocaleDateString().split('/').reverse();
     const correctDate = hoy.toISOString().substring(0,10).split('-')
-    console.log(asd);
-    console.log(correctDate);
 
     let todaysDate = new Date(correctDate[0] + '-' + correctDate[1] +  '-' + correctDate[2]);
     let selectDate = new Date (this.selectedYear + '-' + this.selectedMonth + '-' + this.selectedDay);
     
     if(selectDate>todaysDate)
     {
-        this.alertService$.errorMessage("Fecha Superior a fecha actual no es válida")
+      this.alertService$.errorMessage("Fecha Superior a fecha actual no es válida")
     }
     else
     {
-      this.bringBlocksByApplicationID(this.applicationId);
-      console.log(this.blocks);
+      this.bringBlocksByApplicationID(this.applicationId);      
       this.extractDateInfo();  
       this.blocksToReport = this.blocks.filter(block => block.year === this.selectedYear && block.month === this.selectedMonth && block.day === this.selectedDay);
       
     }
-
-    
-    
+    console.log(this.blocksToReport);
+        
   }
-
-
-
-
-
-  
 
   extractDateInfo(){
     this.selectedYear = this.selectedDate.substring(0,4);

@@ -34,10 +34,10 @@
         </div>         
         <div class="w-full text-center mb-5" *ngIf="!formLogin.valid">
             <span  class="warning" >*Todos los campos son requeridos</span>
-        </div>  
-        <!-- *ngIf="formLogin.valid"*ngIf="formLogin.valid"             -->
+        </div>          
         <div class="btn-container" >
-            <button                                
+            <button 
+                *ngIf="formLogin.valid"                               
                 pButton
                 type="submit"            
                 class="btn-register"

@@ -20,15 +20,13 @@ export class ApplicationManagmentComponent implements OnInit {
   user!:User;
   currentApp!:any;
 
-  saludar:any;
+  
   constructor(
     private applicationService$: ApplicationService,
     private auth$: AuthService,
     private swal$ : SweetalertService
   ) {
-    this.saludar  = function name() {
-      console.log("hola")
-    }
+    
   }
 
   ngOnInit(): void {

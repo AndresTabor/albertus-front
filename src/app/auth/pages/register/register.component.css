@@ -66,3 +66,25 @@ a{
     font-family: Hatton;
     color: #ffff;
 }
+
+/*Responsive*/
+
+@media (max-width: 450px){
+    .container-form{
+        height: calc(100vh - 72px);  
+    }
+    .login-form{
+        width: 100%;
+        margin: 0;
+    }
+    .login-form  h2{
+        font-size: 2rem!important;
+    }
+}
+
+@media (min-width: 456px) and (max-width: 1024px){
+    .login-form{
+        width: 50%;
+        margin: 0;
+    }
+}

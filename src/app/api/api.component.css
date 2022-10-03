@@ -45,9 +45,29 @@
 }
 
 /* Responsive */
-
 @media (max-width: 1440px) {
+    
+    
     .api-illustration{
         display: none;
-    }
+    }    
 }
+
+@media (max-width: 425px) {
+    .api-container{
+        padding: 2rem 2rem;
+        
+    }
+    .api-container > div:nth-child(1){
+        width: 100%;        
+    }
+
+    .card-request{
+        width: 300px;
+        height: 360px;
+        margin-right: 0; 
+        margin-bottom: 2rem;       
+    }
+
+}
+

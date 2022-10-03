@@ -8,7 +8,7 @@ import {
   signInWithPopup,
   signOut,
   UserCredential,
-  GoogleAuthProvider,
+  GoogleAuthProvider
 } from '@angular/fire/auth';
 import { LoginModel } from '../interfaces/LoginModel';
 import { User } from 'firebase/auth';

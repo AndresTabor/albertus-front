@@ -12,7 +12,7 @@ import { User } from '@angular/fire/auth';
   styleUrls: ['./application-managment.component.css'],
 })
 export class ApplicationManagmentComponent implements OnInit {
-  title: string = 'Create Application';
+  title: string = 'Registrar Aplicación';
   bodyRegister: any;
   dsecription: string = '';
   uuid: string = uuidv4();
